@@ -1,0 +1,48 @@
+- name: default value
+  hosts: localhost
+  tasks:
+  - name: print default value
+    ansible.builtin.debug:
+      msg: "Hello {{ course | default('Ansible') }}"
+
+  - name: upper case
+    vars:
+      greetings: "Hello, Good morning"
+    ansible.builtin.debug:
+      msg: "{{ greetings | upper }}"
+
+  - name: upper case
+    vars:
+      greetings: "Hello, Good morning"
+    ansible.builtin.debug:
+      msg: "{{ greetings | lower }}" 
+
+  - name: remove duplicates
+    vars:
+      numbers: [1,2,3,4,5,4,5,4,1,1,2]
+    ansible.builtin.debug:
+      msg: "{{ numbers | unique }}"
+
+  - name: print min and max
+    vars:
+      ages: [25,55,42,58,12]
+    ansible.builtin.debug:
+      msg: "min age: {{ ages | min }}, max age: {{ ages | max }}"
+
+  - name: dictionary to items/list
+    vars:
+      my_dict:       # this is called dictionary or map or key/value pairs.
+        course: ansible
+        trainer: roopa
+        duration: "120hrs"
+    ansible.builtin.debug:
+      msg: "{{ my_dict | dict2items }}"
+
+  - name: convert items to dict
+    vars:
+      my_list:
+      - {'key': 'course', 'value': 'Ansible'}
+      - {'key': 'trained', 'value': 'roopa'}
+      - {'key': 'duration', 'value': '120hrs'}
+    ansible.builtin.debug:
+      msg: "{{ my_list | items2dict }}"  
