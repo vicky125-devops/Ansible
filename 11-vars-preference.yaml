@@ -1,0 +1,24 @@
+- name: variable preference
+  hosts: localhost
+#5 vars:
+#    WISHES: "KAAYI KACHODI ROOPA"
+#3vars_files:
+# - 7-vars.yaml
+#4vars_prompt:
+# - name: WISHES
+#   prompt: please enter WISHES
+#   private: false  
+  tasks:
+  - name: check preference
+#2  vars:
+#     WISHES: "Roopa clitorus"    
+    ansible.builtin.debug:
+      msg: "Hello {{PERSON}} Osey {{WISHES}}"
+
+# arguments
+# Task level
+# variable files
+# prompt
+# play level
+# 6th inventory vars 
+# role level     
