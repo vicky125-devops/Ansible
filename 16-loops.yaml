@@ -1,5 +1,5 @@
 - name: demo on loops
-  hosts: localhost
+  hosts: web 
   become: yes
   tasks:
   - name: print names
